@@ -1,32 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { GoogleLogin, GoogleLogout, useGoogleLogin } from 'react-google-login';
+import React, { useEffect } from 'react';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 
 const GoogleLoginBtn = ({ user, setUser }) => {
-    // const { signIn, loaded } = useGoogleLogin({
-    //     onSuccess,
-    //     // onAutoLoadFinished,
-    //     // clientId,
-    //     // cookiePolicy,
-    //     // loginHint,
-    //     // hostedDomain,
-    //     // autoLoad,
-    //     // isSignedIn,
-    //     // fetchBasicProfile,
-    //     // redirectUri,
-    //     // discoveryDocs,
-    //     onFailure,
-    //     // uxMode,
-    //     // scope,
-    //     // accessType,
-    //     // responseType,
-    //     // jsSrc,
-    //     // onRequest,
-    //     prompt
-    // })
-
-
-
+    
     useEffect(() => {
         const initClient = () => {
             gapi.client.init({
@@ -38,8 +15,6 @@ const GoogleLoginBtn = ({ user, setUser }) => {
     });
 
     const onSuccess = (res) => {
-        window.sessionStorage.setItem("access_token", res.accessToken)
-        window.sessionStorage.setItem("name", res.profileObj.name);
         setUser(res)
         console.log('success:', res);
     };
@@ -50,8 +25,6 @@ const GoogleLoginBtn = ({ user, setUser }) => {
 
     const logout = (res) => {
         console.log(res);
-        // window.sessionStorage.removeItem("access_token", res.accessToken)
-        // window.sessionStorage.removeItem("name", res.profileObj.name);
         setUser({})
     }
 
