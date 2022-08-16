@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import GoogleLoginBtn from './GoogleLoginBtn';
 
 function App() {
+  // function handleCallbackResponse(){
+
+  // }
+  // useEffect(()=>{
+  //   // global google
+  //   google.accounts.id.initialize({
+  //     client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+  //     callback:handleCallbackResponse
+  //   })
+  // },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='login-form'>
+      <GoogleLoginBtn />
     </div>
   );
 }
