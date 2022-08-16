@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import GoogleLoginBtn from './GoogleLoginBtn';
 
@@ -13,9 +13,10 @@ function App() {
   //     callback:handleCallbackResponse
   //   })
   // },[])
+  const [user, setUser] = useState({})
   return (
     <div className='login-form'>
-      <GoogleLoginBtn />
+      <GoogleLoginBtn user={user} setUser={setUser} />
     </div>
   );
 }
